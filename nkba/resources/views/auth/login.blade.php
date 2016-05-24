@@ -10,15 +10,15 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+                        <div class="form-group{{ $errors->has('member_number') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">member_number</label>
 
                             <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <input type="text" class="form-control" name="member_number" value="{{ old('member_number') }}">
 
-                                @if ($errors->has('email'))
+                                @if ($errors->has('member_number'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('member_number') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -50,7 +50,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" >
                                     <i class="fa fa-btn fa-sign-in"></i>Login
                                 </button>
 
@@ -63,4 +63,9 @@
         </div>
     </div>
 </div>
+<script>
+    function sub(){
+        alert();
+    }
+</script>
 @endsection
