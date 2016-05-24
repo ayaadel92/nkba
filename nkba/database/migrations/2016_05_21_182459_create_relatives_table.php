@@ -25,7 +25,7 @@ class CreateRelativesTable extends Migration {
             $table->primary(array('member_number', 'number_health_care')); //deh el primry key
             $table->integer('limit_id')->unsigned();
             $table->foreign('limit_id')->references('id')->on('limits')->onDelete('cascade'); // delete on cascade 
-            $table->foreign('member_number')->references('member_number')->on('engineers')->onDelete('cascade');
+            $table->foreign('member_number')->references('member_number')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
