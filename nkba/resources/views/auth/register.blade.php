@@ -37,6 +37,29 @@
                                 @endif
                             </div>
                         </div>
+                        
+                        
+                        
+                        
+                             <div class="form-group{{ $errors->has('member_number') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">member_number</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="member_number" value="{{ old('member_number') }}">
+
+                                @if ($errors->has('member_number'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('member_number') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Password</label>
