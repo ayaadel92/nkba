@@ -13,8 +13,14 @@ class CreateEvaluateLapsTable extends Migration
     public function up()
     {
         Schema::create('evaluate_lap', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('lab_id')->unsigned()->notNull();
+            $table->string('eng_id')->notNull();
+            $table->float('rate');
+            $table->foreign('eng_id')->references('member_id')->on('users')->onDelete('cascade');
+            $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
+            $table->primary(array('lab_id', 'eng_id')); 
             $table->timestamps();
+
         });
     }
 

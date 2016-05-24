@@ -12,13 +12,12 @@ class CreateRenewsTable extends Migration {
      */
     public function up() {
         Schema::create('renews', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->string('member_number');
-            $table->string('number_health_care');
+            $table->string('member_id');
+            $table->string('health_id');
             $table->date('year');
             $table->string('path'); // dah l sora 
-            $table->primary(array('member_number', 'number_health_care')); //deh el primry key
-            $table->foreign('member_number')->references('member_number')->on('users')->onDelete('cascade');
+            $table->primary(array('member_id', 'health_id')); //deh el primry key
+            $table->foreign('member_id')->references('member_id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

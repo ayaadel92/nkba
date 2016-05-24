@@ -13,11 +13,11 @@ class CreateLimitsTable extends Migration
     public function up()
     {
         Schema::create('limits', function (Blueprint $table) {
-             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('remainder_of_total');// dah motbaky mn el flos 
-            $table->integer('credit_of_sugrgeries');// flos el 3mlyt 
-            $table->integer('credit_medical_tests_and_rumors');// flos el t7lel w el 2sh3a 
+            $table->integer('total_remainder');// dah motbaky mn el flos 
+            $table->integer('surgery_credit');// flos el 3mlyt 
+            $table->integer('analysis_credit');// flos el t7lel w el 2sh3a 
+            $table->integer('radiopology_credit');
             });
     }
 

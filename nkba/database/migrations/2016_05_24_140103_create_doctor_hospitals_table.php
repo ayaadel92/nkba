@@ -13,7 +13,11 @@ class CreateDoctorHospitalsTable extends Migration
     public function up()
     {
         Schema::create('doctor_hospital', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('hospital_id')->unsigned();
+            $table->integer('doctor_id')->unsigned();
+            $table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
+            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->primary(array('hospital_id', 'doctor_id')); 
             $table->timestamps();
         });
     }

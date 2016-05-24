@@ -18,10 +18,8 @@ class CreateLabsTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('governorate');
-            $table->string('area');
-            $table->string('rate');
-            
-            $table->enum('type', ['lab', 'ray_center']); // dah el no3 
+            $table->string('area'); 
+            $table->enum('type', ['analysis_lab', 'ray_center']); // dah el no3 
             $table->string('discription');
             $table->string('path');
             $table->timestamps();

@@ -13,14 +13,11 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function ( $table) {
-            //$table->increments('id');
-                // $table->engine = 'InnoDB';
-
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
-            $table->string('member_number'); //colum el id 
-            $table->string('number_health_care'); // colum el rkm el t2men el s7y 
+            $table->string('member_id'); //colum el id 
+            $table->string('health_id'); // colum el rkm el t2men el s7y 
             $table->string('national_id'); // dah rkm el bt2a 
             $table->string('name'); // 2sm el mohnds 
             $table->string('address'); // 3nwan el mohds 
@@ -29,25 +26,14 @@ class CreateUsersTable extends Migration
             $table->string('graduation_year'); // snt el t5rog 
             $table->string('number_part'); // dah 3dat el moshrken m3h 
             $table->enum('Gidender', ['Male', 'Female']); // dah el no3 
-            $table->string('credit_number'); // dah rkm el credit bt3o lw mwgod
-           
+            $table->string('credit_number'); // dah rkm el credit bt3o lw mwgod          
             $table->string('path'); // dah l sora 
-
             $table->timestamps();
-            $table->primary('member_number'); //deh el primry key
+            $table->primary('member_id'); //deh el primry key
             $table->integer('limit_id')->unsigned();
+            $table->foreign('limit_id')->references('id')->on('limits')->onDelete('cascade'); // delete on cascade 
         });
         
-            Schema::table('users', function ( $table) {
-      
-
-            $table->foreign('limit_id')->references('id')->on('limits')->onDelete('cascade'); // delete on cascade 
-            
-  
-            
-            
-            
-        });
     }
 
     /**

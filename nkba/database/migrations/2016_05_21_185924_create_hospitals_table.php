@@ -19,10 +19,8 @@ class CreateHospitalsTable extends Migration
             $table->string('phone');
             $table->string('governorate');
             $table->string('area');
-            $table->string('rate');
             $table->string('discription');
-            $table->string('path');
-            
+            $table->string('path');          
             $table->timestamps();
         });
     }

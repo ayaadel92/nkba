@@ -22,10 +22,7 @@ class CreateDoctorsTable extends Migration
             $table->string('governorate');
             $table->string('area');
             $table->string('price');
-            $table->date('time_form');
-            $table->date('time_to');
             $table->string('mobile');
-            $table->string('rate');
             $table->string('discription');
             $table->string('path');
             $table->timestamps();

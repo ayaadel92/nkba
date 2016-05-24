@@ -12,8 +12,13 @@ class CreateEvaluateDoctorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluate_doctor', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('evaluate_doctors', function (Blueprint $table) {
+            $table->integer('doctor_id')->unsigned()->notNull();
+            $table->string('eng_id')->notNull();
+            $table->float('rate');
+            $table->foreign('eng_id')->references('member_id')->on('users')->onDelete('cascade');
+            $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->primary(array('doctor_id', 'eng_id')); 
             $table->timestamps();
         });
     }

@@ -12,9 +12,17 @@ class CreateComplaintsTable extends Migration
      */
     public function up()
     {
-        Schema::create('complaint', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::create('complaints', function (Blueprint $table) {
+             $table->increments('id');
+             $table->string('eng_id')->notNull();
+             $table->string('hospital_name');
+             $table->string('doctor_name');
+             $table->string('lab_name');
+             $table->string('description');
+             $table->string('vedio_path');
+             $table->string('img_path');
+             $table->foreign('eng_id')->references('member_id')->on('users')->onDelete('cascade');
+             $table->timestamps();
         });
     }
 
