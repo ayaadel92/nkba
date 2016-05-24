@@ -18,7 +18,7 @@ class CreateRenewsTable extends Migration {
             $table->date('year');
             $table->string('path'); // dah l sora 
             $table->primary(array('member_number', 'number_health_care')); //deh el primry key
-            $table->foreign('member_number')->references('member_number')->on('engineers')->onDelete('cascade');
+            $table->foreign('member_number')->references('member_number')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

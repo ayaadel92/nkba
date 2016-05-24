@@ -50,6 +50,22 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
+            
+             'member_number'=>'required|max:50|unique:users',
+             'number_health_care'=>'required|max:50|unique:users',
+             'national_id'=>'required|max:50|unique:users',
+             'address'=>'required|max:255',
+             'phone_number'=>'required|max:255',
+            'date_of_birth'=>'required|max:255',
+            'graduation_year'=>'required|max:255',
+            
+            
+            'number_part'=>'max:255',
+            'Gidender'=>'required|max:255',            
+            'credit_number'=>'max:255',
+            'path'=>'required|max:255',
+           // 'graduation_year'=>'required|max:255',
+
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -66,6 +82,25 @@ class AuthController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            
+            'member_number' => $data['member_number'],
+            'number_health_care' => $data['number_health_care'],
+            'national_id' => $data['national_id'],
+            'address' => $data['address'],
+            'phone_number' => $data['phone_number'],
+            'date_of_birth' => $data['date_of_birth'],
+            
+            'graduation_year' => $data['graduation_year'],
+            'Gidender' => $data['Gidender'],
+            'number_part' => $data['number_part'],
+            
+            
+            
+            
+            
+            
+            
+            
             'password' => bcrypt($data['password']),
         ]);
     }
