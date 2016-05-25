@@ -12,10 +12,10 @@ class CreateMedicalTestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('medical_test', function (Blueprint $table) {
-            $table->integer('id')->unsigned()->notNull();
-            $table->integer('transfer_id')->unsigned()->notNull();
-            $table->foreign('transfer_id')->references('id')->on('transfer')->onDelete('cascade');
+        Schema::create('medical_tests', function (Blueprint $table) {
+            $table->integer('id')->unsigned();
+            $table->integer('transfer_id')->unsigned();
+            $table->foreign('transfer_id')->references('id')->on('transfers')->onDelete('cascade');
             $table->string('test');
             $table->primary(array('id', 'transfer_id')); 
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateMedicalTestsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('required_medical_test');
+        Schema::drop('medical_tests');
     }
 }

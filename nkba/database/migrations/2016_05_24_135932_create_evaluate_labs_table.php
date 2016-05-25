@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvaluateLapsTable extends Migration
+class CreateEvaluateLabsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class CreateEvaluateLapsTable extends Migration
      */
     public function up()
     {
-        Schema::create('evaluate_lap', function (Blueprint $table) {
-            $table->integer('lab_id')->unsigned()->notNull();
-            $table->string('eng_id')->notNull();
+        Schema::create('evaluate_labs', function (Blueprint $table) {
+            $table->integer('lab_id')->unsigned();
+            $table->integer('eng_id')->unsigned();
             $table->float('rate');
-            $table->foreign('eng_id')->references('member_id')->on('users')->onDelete('cascade');
+            $table->foreign('eng_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
             $table->primary(array('lab_id', 'eng_id')); 
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreateEvaluateLapsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('evaluate_lap');
+        Schema::drop('evaluate_labs');
     }
 }
