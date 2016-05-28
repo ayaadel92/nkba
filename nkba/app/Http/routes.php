@@ -12,9 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    
+Notify::success('مرحبا','تسجيل دخول');
+    return view('transfer');
 });
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::post('transfer', 
+  ['as' => 'transfer_store', 'uses' => 'TransferController@transfer']);

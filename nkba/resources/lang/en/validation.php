@@ -93,8 +93,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'mem_number' => [
+            'required' => 'أدخل رقم العضوية',
         ],
     ],
 
@@ -110,5 +110,14 @@ return [
     */
 
     'attributes' => [],
+
+
+
+    public function messages()
+{
+    return [
+        'mem_number.required'                =>  'ادخل رقم العضوية',
+    ];
+}
 
 ];
