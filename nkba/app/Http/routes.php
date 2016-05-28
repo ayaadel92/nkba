@@ -14,7 +14,7 @@
 Route::get('/', function () {
     
 Notify::success('مرحبا','تسجيل دخول');
-    return view('transfer');
+    return view('home');
 });
 
 Route::auth();

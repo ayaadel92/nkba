@@ -16,12 +16,12 @@ class CreateLabsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('address');
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('governorate');
             $table->string('area'); 
             $table->enum('type', ['analysis_lab', 'ray_center']); // dah el no3 
-            $table->string('discription');
-            $table->string('path');
+            $table->string('discription')->nullable();
+            $table->string('path')->nullable();
             $table->timestamps();
         });
     }

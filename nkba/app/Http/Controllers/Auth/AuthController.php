@@ -23,14 +23,17 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    /**
-     * Where to redirect users after login / registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
+// <<<<<<< HEAD
+//     /**
+//      * Where to redirect users after login / registration.
+//      *
+//      * @var string
+//      */
+//     protected $redirectTo = '/';
     
-     protected $username = 'member_id';
+//      protected $username = 'member_id';
+// =======
+    protected $redirectAfterLogout = 'login';
 
     /**
      * Create a new authentication controller instance.
@@ -39,40 +42,54 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->redirectAfterLogout = config('quickadmin.homeRoute');
+        $this->middleware('guest', ['except' => 'getLogout']);
     }
 
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
+<<<<<<< HEAD
             'name' => 'required|max:255',//
             
              'member_id'=>'required|max:50|unique:users',
 
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+=======
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users',
+            'password' => 'required|confirmed|min:6',
+>>>>>>> 3426d32aa240552455ec28ce43ef49f8ca10a1f4
         ]);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
+     *
      * @return User
      */
     protected function create(array $data)
     {
         return User::create([
+<<<<<<< HEAD
             'name' => $data['name'],
             'email' => $data['email'],
             
             'member_id' => $data['member_id'], 
+=======
+            'name'     => $data['name'],
+            'email'    => $data['email'],
+>>>>>>> 3426d32aa240552455ec28ce43ef49f8ca10a1f4
             'password' => bcrypt($data['password']),
         ]);
     }

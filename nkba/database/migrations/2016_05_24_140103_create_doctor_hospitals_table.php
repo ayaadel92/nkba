@@ -12,7 +12,7 @@ class CreateDoctorHospitalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('doctor_hospital', function (Blueprint $table) {
+        Schema::create('doctor_hospitals', function (Blueprint $table) {
             $table->integer('hospital_id')->unsigned();
             $table->integer('doctor_id')->unsigned();
             $table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
@@ -29,6 +29,6 @@ class CreateDoctorHospitalsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('doctor_hospital');
+        Schema::drop('doctor_hospitals');
     }
 }

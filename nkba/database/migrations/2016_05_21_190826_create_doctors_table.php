@@ -17,14 +17,14 @@ class CreateDoctorsTable extends Migration
             $table->string('name');
             $table->string('degree');
             $table->string('specialization');
-            $table->string('address');
-            $table->string('phone');
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
             $table->string('governorate');
             $table->string('area');
-            $table->string('price');
-            $table->string('mobile');
-            $table->string('discription');
-            $table->string('path');
+            $table->string('price')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('discription')->nullable();
+            $table->string('path')->nullable();
             $table->timestamps();
         });
     }

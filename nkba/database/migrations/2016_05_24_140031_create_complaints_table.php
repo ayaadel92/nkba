@@ -13,16 +13,16 @@ class CreateComplaintsTable extends Migration
     public function up()
     {
         Schema::create('complaints', function (Blueprint $table) {
-             $table->increments('id');
-             $table->string('eng_id')->notNull();
-             $table->string('hospital_name');
-             $table->string('doctor_name');
-             $table->string('lab_name');
-             $table->string('description');
-             $table->string('vedio_path');
-             $table->string('img_path');
-             $table->foreign('eng_id')->references('member_id')->on('users')->onDelete('cascade');
-             $table->timestamps();
+            $table->increments('id');
+            $table->integer('eng_id')->unsigned();
+            $table->string('hospital_name')->nullable();
+            $table->string('doctor_name')->nullable();
+            $table->string('lab_name')->nullable();
+            $table->string('description');
+            $table->string('vedio_path')->nullable();
+            $table->string('img_path')->nullable();
+            $table->foreign('eng_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -33,6 +33,6 @@ class CreateComplaintsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('complaint');
+        Schema::drop('complaints');
     }
 }

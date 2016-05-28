@@ -149,6 +149,9 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Jleon\LaravelPnotify\NotifyServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class, 
+        Laraveldaily\Quickadmin\QuickadminServiceProvider::class,
+
 
         /*
          * Application Service Providers...
